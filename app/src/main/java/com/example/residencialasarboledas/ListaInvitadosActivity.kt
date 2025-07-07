@@ -1,7 +1,7 @@
-
 package com.example.residencialasarboledas
-
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,17 +15,29 @@ class ListaInvitadosActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: InvitadosAdapter
     private val listaInvitados = mutableListOf<Invitado>()
+    private lateinit var btnSalir: Button  // <-- Añadido botón salir
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista_invitados)  // Aquí va el layout principal de la Activity
+        setContentView(R.layout.activity_lista_invitados)
 
         recyclerView = findViewById(R.id.recyclerInvitados)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = InvitadosAdapter(listaInvitados)
         recyclerView.adapter = adapter
 
-        // Recibe idUsuario desde Intent
+        // Inicializar botón salir
+
+
+        btnSalir = findViewById(R.id.btnSalir)
+        btnSalir.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()  // 🔒 Cierra la actividad actual para evitar regresar con el botón atrás
+        }
+
+
         val idUsuario = intent.getIntExtra("idUsuario", -1)
         if (idUsuario == -1) {
             Toast.makeText(this, "Id de usuario no válido", Toast.LENGTH_SHORT).show()
@@ -37,7 +49,7 @@ class ListaInvitadosActivity : AppCompatActivity() {
     }
 
     private fun obtenerInvitadosPorUsuario(idUsuario: Int) {
-        val url = "http://TU_IP/api/Invitados/porUsuario/$idUsuario"  // Cambia TU_IP
+        val url = "http://10.0.2.2:5073/api/Invitados/porUsuario/$idUsuario"
 
         val queue = Volley.newRequestQueue(this)
         val jsonArrayRequest = JsonArrayRequest(
@@ -71,3 +83,4 @@ class ListaInvitadosActivity : AppCompatActivity() {
         queue.add(jsonArrayRequest)
     }
 }
+
