@@ -4,34 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEAD8"
+    android:background="#AEE4FF"
     tools:context=".InicioActivity">
 
-    <!-- Texto: ¡Bienvenido! (color original) -->
+    <!-- Texto: ¡Bienvenido! -->
     <TextView
         android:id="@+id/textViewBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="monospace"
         android:text="¡Bienvenido!"
         android:textColor="#040C47"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:fontFamily="cursive"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Texto: Nombre del usuario -->
     <TextView
         android:id="@+id/textViewNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#AEE4FF"
         android:text="NombreUsuario"
-        android:textColor="#5C5C5C"
+        android:textColor="#040C47"
         android:textSize="24sp"
         android:textStyle="italic"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/textViewBienvenida"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -41,11 +42,11 @@
         android:id="@+id/imageView"
         android:layout_width="271dp"
         android:layout_height="271dp"
-        app:srcCompat="@drawable/casa"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/textViewNombreUsuario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/casa" />
 
     <!-- Botón: Generar QR -->
     <Button
@@ -54,7 +55,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="24dp"
         android:layout_marginHorizontal="32dp"
-        android:backgroundTint="#6C7A89"
+        android:backgroundTint="#FFB8D0"
         android:text="Generar QR"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -62,17 +63,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botón: Invitados -->
+    <!-- Botón: Invitados (NO se usa en tu clase) -->
     <Button
         android:id="@+id/buttonInvitados"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:text="Invitados"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#98A886"
-        android:textSize="18sp"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="32dp"
+        android:backgroundTint="#FFB8D0"
+        android:text="Invitados"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/buttonGenerarQR"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -82,14 +83,17 @@
         android:id="@+id/buttonCerrarSesion"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:text="Cerrar sesión"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#A06A6A"
-        android:textSize="18sp"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="32dp"
+        android:backgroundTint="#FFB8D0"
+        android:text="Cerrar sesión"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/buttonInvitados"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- 🔹 Botón Ver Invitados (usado en tu clase Kotlin) -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

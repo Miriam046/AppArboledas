@@ -1,5 +1,6 @@
 package com.example.residencialasarboledas
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -37,19 +38,34 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun realizarLogin(usuario: String, contraseña: String) {
-        val url = "http://10.0.2.2:7086/api/auth/login"
+        val url = "http://10.0.2.2:5073/api/UsuariosResidentes/login"
 
-        val jsonBody = JSONObject()
-        jsonBody.put("usuarioNombre", usuario)
-        jsonBody.put("password", contraseña)
+        val jsonBody = JSONObject().apply {
+            put("usuarioNombre", usuario)
+            put("password", contraseña)
+        }
 
         val request = JsonObjectRequest(
             Request.Method.POST,
             url,
             jsonBody,
             { response ->
-                val mensaje = if (response.has("message")) response.getString("message") else "Inicio de sesión exitoso"
+                val mensaje = response.optString("message", "Inicio de sesión exitoso")
+                val nombre = response.optString("nombre", "Usuario")
+                val idUsuario = response.optInt("id_usuario", -1)
+
                 Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+
+                if (idUsuario != -1) {
+                    // 👉 Enviar a InicioActivity con nombre e ID del usuario
+                    val intent = Intent(this, InicioActivity::class.java)
+                    intent.putExtra("nombreUsuario", nombre)
+                    intent.putExtra("idUsuario", idUsuario)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "ID de usuario no recibido del servidor", Toast.LENGTH_LONG).show()
+                }
             },
             { error ->
                 val code = error.networkResponse?.statusCode ?: -1

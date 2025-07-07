@@ -1,12 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Residencia las Arboledas</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <!-- Navegación -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!-- Accesibilidad -->
+    <string name="fab_desc">Botón flotante</string>
+
+    <!-- Texto largo de ejemplo -->
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -43,4 +49,12 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+    <!-- Formulario de Código QR -->
+    <string name="titulo">Agregar Nuevo Invitado</string>
+    <string name="nombre_hint">Nombre(s)</string>
+    <string name="apellidos_hint">Apellidos</string>
+    <string name="tipo_label">Tipo de invitación</string>
+    <string name="btn_generar">Generar Código QR</string>
+    <string name="qr_description">Código QR generado</string>
 </resources>

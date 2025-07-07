@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BDB89F"
+    android:background="#AEE4FF"
     android:padding="16dp"
     tools:context=".CodigoQrActivity">
 
@@ -14,79 +14,85 @@
         android:id="@+id/tv_form_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Agregar Nuevo Invitado"
-        android:textSize="28sp"
-        android:textColor="#040C47"
-        android:fontFamily="cursive"
-        android:textStyle="italic"
+        android:text="@string/titulo"
+        android:textSize="26sp"
+        android:textColor="#033495"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
     <!-- Campo: Nombre -->
     <EditText
         android:id="@+id/et_nombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nombre(s)"
+        android:hint="@string/nombre_hint"
         android:inputType="textPersonName"
-        android:background="#E9E4D3"
+        android:backgroundTint="#FFFFFF"
+        android:background="#FFFFFF"
+        android:textColor="#033495"
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/tv_form_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <!-- Campo: Apellidos -->
     <EditText
         android:id="@+id/et_apellidos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Apellidos"
+        android:hint="@string/apellidos_hint"
         android:inputType="textPersonName"
-        android:background="#E9E4D3"
+        android:backgroundTint="#FFFFFF"
+        android:background="#FFFFFF"
+        android:textColor="#033495"
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/et_nombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <!-- Etiqueta: Tipo de Invitación -->
     <TextView
         android:id="@+id/label_tipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tipo de invitación"
-        android:textColor="#352517"
+        android:text="@string/tipo_label"
+        android:textColor="#033495"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/et_apellidos"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <!-- Spinner: Tipo de invitación -->
     <Spinner
         android:id="@+id/spinner_tipo_invitacion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#8E8267"
+        android:backgroundTint="#FFB8D0"
         android:padding="8dp"
         app:layout_constraintTop_toBottomOf="@id/label_tipo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp" />
 
     <!-- Botón: Generar Código QR -->
     <Button
         android:id="@+id/btn_generar_qr"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Generar Código QR"
+        android:text="@string/btn_generar"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#8E8267"
+        android:backgroundTint="#033495"
         android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/spinner_tipo_invitacion"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,11 +104,30 @@
         android:id="@+id/qrImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:contentDescription="Código QR generado"
+        android:contentDescription="@string/qr_description"
         android:background="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/btn_generar_qr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
+
+    <!-- Botón: Salir -->
+    <Button
+        android:id="@+id/btn_salir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Salir"
+        android:textColor="#033495"
+        android:backgroundTint="#FFB8D0"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:padding="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@id/qrImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

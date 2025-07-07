@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.residencialasarboledas">
 
-    <!-- Permiso de acceso a Internet -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.ResidenciaLasArboledas"
         tools:targetApi="31">
 
-        <!-- Ahora LoginActivity es la pantalla inicial -->
+        <!-- Actividad principal que se lanza al iniciar la app -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -28,7 +28,19 @@
             </intent-filter>
         </activity>
 
-        <!-- Si aún usas MainActivity, déjala pero sin intent-filter -->
+        <!-- Actividad de inicio que recibe nombreUsuario e idUsuario -->
+        <activity
+            android:name=".InicioActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ResidenciaLasArboledas" />
+
+        <!-- Actividad para mostrar lista de invitados -->
+        <activity
+            android:name=".ListaInvitadosActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ResidenciaLasArboledas" />
+
+        <!-- Si usas esta actividad, mantenla declarada -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
