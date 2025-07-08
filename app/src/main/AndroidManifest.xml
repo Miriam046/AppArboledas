@@ -40,6 +40,12 @@
             android:exported="false"
             android:theme="@style/Theme.ResidenciaLasArboledas" />
 
+        <!-- Actividad para generar QR -->
+        <activity
+            android:name=".CodigoQrActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ResidenciaLasArboledas" />
+
         <!-- Si usas esta actividad, mantenla declarada -->
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,3 @@
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -56,6 +55,12 @@ dependencies {
 
     // ✅ Volley para consumir APIs REST
     implementation("com.android.volley:volley:1.2.1")
+
+    // ✅ ZXing para generación de códigos QR
+    implementation("com.google.zxing:core:3.5.2")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    // 🧱 Layouts
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.material:material:1.11.0")
 

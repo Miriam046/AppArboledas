@@ -31,8 +31,10 @@ class InicioActivity : AppCompatActivity() {
 
         // Abrir pantalla de QR
         buttonGenerarQR.setOnClickListener {
-            // Puedes cambiar esto según la pantalla que tengas para generar QR
-            // startActivity(Intent(this, GenerarQRActivity::class.java))
+            buttonGenerarQR.setOnClickListener {
+                val intent = Intent(this, CodigoQrActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         // Ir a la lista de invitados

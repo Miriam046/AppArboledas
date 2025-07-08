@@ -29,13 +29,7 @@ class ListaInvitadosActivity : AppCompatActivity() {
         // Inicializar botón salir
 
 
-        btnSalir = findViewById(R.id.btnSalir)
-        btnSalir.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()  // 🔒 Cierra la actividad actual para evitar regresar con el botón atrás
-        }
+
 
 
         val idUsuario = intent.getIntExtra("idUsuario", -1)
